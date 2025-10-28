@@ -4,6 +4,8 @@ from langchain_chroma.vectorstores import Chroma
 from langchain_openai.embeddings import OpenAIEmbeddings
 from dotenv import load_dotenv
 
+load_dotenv()
+
 PASTA_BASE = "base"
 
 def criar_db():
@@ -29,7 +31,7 @@ def dividir_chunks(documentos):
     return chunks
     
 def vetorizar_chunks(chunks):
-    pass
+    db = Chroma.from_documents(chunks, OpenAIEmbeddings(), persist_directory="db")
 
 
 
