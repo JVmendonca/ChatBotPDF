@@ -35,7 +35,7 @@ def perguntar():
     base_conhecimento = "\n".join(texto_resultado) 
 
     prompt = ChatPromptTemplate.from_template(prompt_template)
-    prompt = prompt.inovoke({"pergunta": pergunta, "base_conhecimento": base_conhecimento})
+    prompt = prompt.invoke({"pergunta": pergunta, "base_conhecimento": base_conhecimento})
 
     modelo = ChatOpenAI()
     texto_resposta = modelo.invoke(prompt).content
